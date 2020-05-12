@@ -28,6 +28,12 @@
     Filter Options
   </div>
   <div class="modal-body text-left">
+    <div class="pull-left">
+      <span class="muted">&#8377;{{ minPrice }}</span>
+    </div>
+    <div class="pull-right">
+      <span class="muted">&#8377;{{ maxPrice }}</span>
+    </div>
     <ejs-slider id='slider' [type]='type' [min]='minPrice' [max]='maxPrice' [value]='[0, maxPrice]' [tooltip]='tooltip'
       [limits]='{ enabled: true, minStart: 0,  maxEnd: maxPrice }' (change)="onSliderChange($event)">
     </ejs-slider>
