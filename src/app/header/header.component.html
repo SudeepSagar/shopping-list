@@ -9,6 +9,7 @@
       <app-search></app-search>
       <i class="fa fa-search cart mr-2" aria-hidden="true" (click)="toggleSearchBox()"></i>
       <i class="fa fa-shopping-cart cart" [routerLink]="['/cart']" aria-hidden="true"></i>
+      <div class="cart-count" *ngIf="enableCounter">{{ cartLength }}</div>
     </div>
   </div>
 </nav>

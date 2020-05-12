@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 col-6 mt-4"
         *ngFor="let item of listData['items'] | csFilter:this.min:this.max | sortFilter:this.sortType | searchFilter:this.seachParam;let i = index;">
-        <div class="card rounded p-0">
+        <div class="card rounded">
           <div class="card-image mb-2">
             <img class="img-fluid card-img" src="{{ item.image }}" alt="{{ item.name }}" />
           </div>

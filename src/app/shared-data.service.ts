@@ -26,6 +26,9 @@ export class SharedDataService {
   private filterRangeVal = new BehaviorSubject<any>(null);
   public filterRangeVal$ = this.filterRangeVal.asObservable();
 
+  private arrayCount = new BehaviorSubject<any>(null);
+  public arrayCount$ = this.arrayCount.asObservable();
+
   publishData(arrayData) {
     this.cartItem.next(arrayData);
   }
@@ -48,5 +51,9 @@ export class SharedDataService {
 
   sendSearchValue(searchString: any) {
     this.seachParam.next(searchString);
+  }
+
+  updateCartCounter(countArray) {
+    this.arrayCount.next(countArray);
   }
 }

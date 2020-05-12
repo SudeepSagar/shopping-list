@@ -61,20 +61,27 @@ li
   .roundedBtn
     font-size: 14px
 
-.card:hover
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3)
-  transition: 0.2s
-
 @media (max-width: 575px)
   .deskFilter
     display: none
+
+@media (max-width: 375px)
+  .rounded
+    padding: 0
+
+@media (min-width: 376px)
+  .rounded
+    padding: 0.25rem
+
+.card:hover
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3)
+  transition: 0.2s
 
 .roundedBtn
   font-size: 13px
 
 .control-section
   height: 100%
-
 
 .material #property tr#slider-showon
   display: none
@@ -84,18 +91,14 @@ li
   margin: 0 auto
   min-width: 185px
 
-
 .sliderwrap
   margin-top: 40px
-
 
 .e-bigger .content-wrapper
   width: 80%
 
-
 .property-custom td
   padding: 5px
-
 
 .sliderwrap label
   padding-bottom: 15px
@@ -103,10 +106,8 @@ li
   font-weight: 500
   margin-top: 15px
 
-
 .e-bigger .slidertooltip.sliderwrap
   margin-right: 20%
-
 
 .property-section
   margin: 25px auto

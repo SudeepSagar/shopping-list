@@ -67,6 +67,7 @@ export class CartIconComponent implements OnInit, OnDestroy {
     const delArray = this.cartItem.indexOf(item, 0);
     if (delArray > -1) {
       this.cartItem.splice(delArray, 1);
+      this.sharedService.updateCartCounter(this.cartItem);
     }
   }
 
