@@ -1,0 +1,64 @@
+<!-- desktop View -->
+<ul class="list-inline text-capitalize heading"><span class="font-weight-bold mr-4">sort by</span>
+  <li class="list-inline-item text-capitalize sortBy" value='1' [ngClass]="{'active': currentTarget == 1}"
+    (click)="listClicked($event)">
+    <span (click)="sort('desc')">Price -- high to low</span></li>
+  <li class="list-inline-item text-capitalize sortBy" value='2' [ngClass]="{'active': currentTarget == 2}"
+    (click)="listClicked($event)">
+    <span (click)="sort('asc')">Price -- low to high</span></li>
+  <li class="list-inline-item text-capitalize sortBy" value='3' [ngClass]="{'active': currentTarget == 3}"
+    (click)="listClicked($event)">
+    <span (click)="sort('disc')">Price -- discount</span></li>
+</ul>
+<!-- Desktop View End -->
+
+<!-- Mobile View -->
+<div class="row">
+  <div class="col-6 text-center p-2 mobileView pull-left" (click)="openModal(template)">
+    <div class="text-center modifyWidth">
+      <div class='icon-container'>
+        <i class="fa fa-caret-up pull-left" aria-hidden="true"></i>
+        <i class="fa fa-caret-down pull-left" aria-hidden="true"></i>
+      </div>
+      <div class="d-inline-flex">
+        <span class="p-2">Sort</span>
+      </div>
+    </div>
+  </div>
+  <ng-template #template>
+    <div class="modal-header">
+      Sort Options
+    </div>
+    <div class="modal-body text-left">
+      <div class="custom-control custom-radio">
+        <input type="radio" #r1 name="customRadio" id="desc" value="desc" class="mr-1 custom-control-input"
+          [checked]="sortType == 'desc' ? true : false">
+        <label class="custom-control-label" for="desc">Price-- High Low</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" #r2 name="customRadio" id="asc" value="asc" class="mr-1 custom-control-input"
+          [checked]="sortType == 'asc' ? true : false">
+        <label class="custom-control-label" for="asc">Price-- Low High</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" #r3 name="customRadio" id="disc" value="disc" class="mr-1 custom-control-input"
+          [checked]="sortType == 'disc' ? true : false">
+        <label class="custom-control-label" for="disc"> Price-- Discount</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="mdlFooter">
+        <button type="button" class="btn font-weight-bold" (click)="decline()">Cancel</button>
+      </div>
+      <div class="mdlFooter">
+        <button type="button" class="btn font-weight-bold"
+          (click)="sort(r1.checked ? r1.value : r2.checked ? r2.value : r3.checked ? r3.value : null)">Appy</button>
+      </div>
+
+    </div>
+  </ng-template>
+  <app-filter class="col-6 text-center p-2 mobileView"></app-filter>
+
+
+</div>
+<!-- Mobile View End -->

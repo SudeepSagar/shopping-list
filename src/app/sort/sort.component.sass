@@ -1,0 +1,56 @@
+li
+  color: #c1c1c1
+  cursor: pointer
+  font-size: 15px
+
+li:hover
+  color: #1a0dab
+  cursor: pointer
+  -webkit-transition: width 0.3s
+  transition: width 0.3s
+  box-shadow: inset 0 0 0 25px Lavender
+
+.active
+  text-decoration: underline
+  text-decoration-color: #1a0dab
+  color: #1a0dab
+
+@media (min-width: 768px)
+  .sortBy
+    margin-right: 1.5rem
+
+@media (min-width: 576px)
+  .heading
+    display: inline
+
+  .row .mobileView
+    display: none !important
+
+@media (max-width: 575px)
+  .heading
+    display: none !important
+
+  .mobileView
+    border: 1px solid #e2e2e2
+
+.modal-sm .modal-content
+  width: 50% !important
+  margin: auto !important
+
+// .mdlFooter
+//   width: 50%
+
+.btn
+  color: #0f86f5
+
+.icon-container
+  display: inline-flex
+  flex-direction: column
+  top: -13%
+  position: relative
+
+.pull-left
+  display: inline-flex
+
+.modifyWidth
+  width: inherit

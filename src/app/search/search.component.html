@@ -1,0 +1,2 @@
+<input name="searchText" class="search" type="text" placeholder="Search" *ngIf="toggleSearch"
+  aria-label="Search" [(ngModel)]="searchText" (keyup)="searchTextValue($event)">

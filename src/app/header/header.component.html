@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg header">
+  <div class="navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <i class="fa fa-star fa-2x gold" [routerLink]="['']" aria-hidden="true"></i>
+      </li>
+    </ul>
+    <div class="pull-right my-2 my-lg-0">
+      <app-search></app-search>
+      <i class="fa fa-search cart mr-2" aria-hidden="true" (click)="toggleSearchBox()"></i>
+      <i class="fa fa-shopping-cart cart" [routerLink]="['/cart']" aria-hidden="true"></i>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid mb-2">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="container-fluid text-center footer">
+  <sup> &copy;</sup>CopyRight
+</div>

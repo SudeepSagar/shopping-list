@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-2 col-sm-3 mt-2 deskFilter">
+    <app-filter></app-filter>
+  </div>
+  <div class="col-md-10 col-sm-9 borderLeft mt-2">
+    <app-sort></app-sort>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mt-4"
+        *ngFor="let item of listData['items'] | csFilter:this.min:this.max | sortFilter:this.sortType | searchFilter:this.seachParam;let i = index;">
+        <div class="card rounded p-0">
+          <div class="card-image mb-2">
+            <img class="img-fluid card-img" src="{{ item.image }}" alt="{{ item.name }}" />
+          </div>
+          <div class="card-image-overlay">
+            <div class="card-detail-badge">{{ item.name }}</div>
+            <span class="font-weight-bold card-detail-badge mr-2 price"><i
+                class="fa fa-inr"></i>{{ item.price.display }}</span>
+            <span
+              class="font-weight-bold card-detail-badge mr-2 actualCost price"><del>{{ item.price.actual }}</del></span>
+            <span class="font-weight-bold card-detail-badge mr-2 discountText price">{{ item.discount }}% off</span>
+          </div>
+          <div class="card-body text-center">
+            <button class="btn btn-warning roundedBtn font-weight-bold" *ngIf="!item.added"
+              (click)="addTocart(item, i)">Add to Cart</button>
+            <button class="btn btn-success roundedBtn font-weight-bold" *ngIf="item.added">Added</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

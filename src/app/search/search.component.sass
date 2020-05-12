@@ -1,0 +1,27 @@
+$white: #ffffff
+$header-color: #0f86f5
+.search
+  border: 0
+  outline: 0
+  margin-right: 10px
+  padding: 10px
+  color: $white
+  border-width: 0 0 2px
+  border-bottom: 1px solid #fff
+  background-color: $header-color
+  font-size: 12px
+  transition: box-shadow 0.3s ease-in-out
+
+.search:focus
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3)
+
+::placeholder //Chrome, Firefox, Opera, Safari 10.1+
+  color: $white
+  opacity: 1 // Firefox
+
+:-ms-input-placeholder //Internet Explorer 10-11
+  color: $white
+
+::-ms-input-placeholder  // Microsoft Edge
+  color: $white
+

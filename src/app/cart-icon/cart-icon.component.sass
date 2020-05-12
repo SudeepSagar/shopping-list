@@ -1,0 +1,78 @@
+$priceFontSize: 11px
+
+.card-img
+  width: 75%
+  height: auto
+
+.discountText
+  color: #1dca1d
+
+.row
+  background-color: #efefff
+  padding: 15px
+
+.card .row
+  background-color: #ffffff
+  border-left: 1px solid #333
+  border-top: 1px solid #333
+  border-bottom: 1px solid #333
+  border-right: 1px solid #80808047
+
+.price
+  font-size: $priceFontSize
+
+input
+  display: inline
+  width: 35px
+  text-align: center
+
+.minusPlus
+  color: #333333
+  background-color: #ffffff
+  cursor: pointer
+
+.priceDetails
+  max-height: 190px
+  border-top: 1px solid #333
+  border-bottom: 1px solid #333
+  border-right: 1px solid #333
+  border-left: 1px solid #80808047
+  background-color: #ffffff
+  font-size: 14px
+
+hr
+  color: #80808047
+
+.discountBlock
+  border-bottom: 1px solid #333
+
+@media (min-width: 1200px)
+  .card-body
+    margin-left: 3rem
+
+@media (min-width: 593px)
+  .card-body
+    display: inline
+
+@media (max-width: 592px)
+  .card-body
+    display: block
+  input
+    padding: 5px 5px
+    width: 35px
+
+@media (max-width: 672px)
+  .card-body
+    padding: 5px
+
+
+@media (max-width: 345px)
+  .card .row
+    min-height: 180px
+
+.disabled
+  cursor: not-allowed
+
+@media (max-width: 425px)
+  .imgAdjust
+    padding: 0

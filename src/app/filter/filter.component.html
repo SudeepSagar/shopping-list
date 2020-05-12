@@ -1,0 +1,44 @@
+<!-- Desktop View Start -->
+<div class="col-md-12 p-0 deskTopView">
+  <p class="font-weight-bold text-capitalize heading">filters</p>
+  <div class="pull-left">
+    <span class="muted">&#8377;{{ minPrice }}</span>
+  </div>
+  <div class="pull-right">
+    <span class="muted">&#8377;{{ maxPrice }}</span>
+  </div>
+  <ejs-slider id='slider' [type]='type' [min]='minPrice' [max]='maxPrice' [value]='[0, maxPrice]' [tooltip]='tooltip'
+    [limits]='{ enabled: true, minStart: 0,  maxEnd: maxPrice }' (change)="onSliderChange($event)">
+  </ejs-slider>
+</div>
+<div class="col-md-12 text-center mt-4 deskTopView">
+  <button type="button" class="btn btn-primary applyBtn" (click)="applyFilter()">Apply</button>
+</div>
+<!-- Desktop View End -->
+
+<!-- Mobile View Start -->
+<div class="text-center modifyWidth mobileView" (click)="openModal(template)">
+  <i class="fa fa-filter" aria-hidden="true"></i>
+  <div class="d-inline-flex">
+    <span class="p-2">Filter</span>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    Filter Options
+  </div>
+  <div class="modal-body text-left">
+    <ejs-slider id='slider' [type]='type' [min]='minPrice' [max]='maxPrice' [value]='[0, maxPrice]' [tooltip]='tooltip'
+      [limits]='{ enabled: true, minStart: 0,  maxEnd: maxPrice }' (change)="onSliderChange($event)">
+    </ejs-slider>
+  </div>
+  <div class="modal-footer">
+    <div class="mdlFooter">
+      <button type="button" class="btn modaBtn font-weight-bold" (click)="decline()">Cancel</button>
+    </div>
+    <div class="mdlFooter">
+      <button type="button" class="btn modaBtn font-weight-bold" (click)="applyFilter()">Apply</button>
+    </div>
+
+  </div>
+</ng-template>

@@ -1,0 +1,49 @@
+<div class="row" *ngIf="cartItem?.length > 0; else noData">
+  <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-3" *ngFor="let item of cartItem; let i = index">
+      <div class="card rounded">
+
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm-2 col-3 m-auto imgAdjust">
+            <img class="img-fluid card-img" src="{{ item.image }}" alt="{{ item.name }}" />
+          </div>
+          <div class="col-lg-10 col-md-10 col-sm-10 col-9" style="font-size: 13px;">
+            <div class="card-detail-badge">{{ item.name }}</div>
+            <span class="font-weight-bold card-detail-badge mr-2 price"><i
+                class="fa fa-inr"></i>{{ item.price.display }}</span>
+            <span
+              class="font-weight-bold card-detail-badge mr-2 actualCost price"><del>{{ item.price.actual }}</del></span>
+            <span class="font-weight-bold card-detail-badge mr-2 discountText price">{{ item.discount }}% off</span>
+            <div class="card-body">
+              <i class="fa fa-minus-circle fa-2x minusPlus" aria-hidden="true" (click)="minusQuantity(item, i)"
+                [attr.disabled]="btnDisabled" [class.disabled]="btnDisabled"></i>&nbsp;
+              <input class="form-control" width="10px" type="num" [(ngModel)]="item.quantity" name="quantity"
+                value="{{ item.quantity }}">&nbsp;
+              <i class="fa fa-plus-circle fa-2x minusPlus" aria-hidden="true" (click)="addQuantity(i)"></i>&nbsp;
+            </div>
+            <div class="card-body">
+              <button class="btn btn-light roundedBtn font-weight-bold text-uppercase"
+                (click)="removeFromCart(item, i)">remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mt-3" *ngIf="cartItem?.length > 0">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 priceDetails p-2">
+      Price details
+      <hr>
+      <div class="discountBlock">
+        <div class="p-2">Price ()&nbsp;&nbsp;:<span class="pull-right">{{ actualPrice }}</span></div>
+        <div class="p-2">Discount&nbsp;&nbsp;:<span class="pull-right">{{ totalDisc }}</span></div>
+      </div>
+      <div class="p-2 font-weight-bold">Total Payable&nbsp;&nbsp;:<span class="pull-right">{{ ItemPrice }}</span></div>
+    </div>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="col-md-12 text-center p-4">
+    Cart is Empty
+  </div>
+</ng-template>
