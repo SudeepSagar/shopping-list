@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListPageService } from './list-page.service';
 import { SharedDataService } from '../shared-data.service';
 import { Subscription } from 'rxjs';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-list-page',
@@ -31,6 +32,15 @@ export class ListPageComponent implements OnInit, OnDestroy {
         }
       });
 
+    this.subscription = this.sharedService.cartItem$.subscribe(
+      cartItem => {
+        if (!cartItem) {
+          this.cartItem = [];
+        } else {
+          this.cartItem = cartItem;
+        }
+      });
+
     // sort on listPage
     this.subscription = this.sharedService.sortType$.subscribe(
       sortType => {
@@ -52,9 +62,14 @@ export class ListPageComponent implements OnInit, OnDestroy {
     // });
 
     this.listData = this.apiData.fetchData();
-    this.listData['items'].forEach(element => {
-      element.added = false;
-    });
+    // check if cartItem exist
+    if (this.cartItem) {
+      this.listData['items'].forEach((item, index) => {
+        if (!this.cartItem.includes(item)) { // check if cartItem does't have listData value then provide add to cart btn
+          this.listData['items'][index].added = false;
+        }
+      });
+    }
     if (Object.keys(this.listData.length > 0)) {
       this.sharedService.sendToFilter(this.listData);
     }
@@ -80,6 +95,11 @@ export class ListPageComponent implements OnInit, OnDestroy {
 
   public addTocart(itemArray) {
     itemArray.added = true;
+    this.listData['items'].filter(items => {
+      if (itemArray === items) { // check if both array has same array value
+        this.apiData.updateData(itemArray);
+      }
+    });
     if (itemArray) {
       this.cartItem.push(itemArray);
       if (this.cartItem.length > 0) {
