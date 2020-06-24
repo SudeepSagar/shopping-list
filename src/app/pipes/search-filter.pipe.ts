@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'searchFilter'
+  name: 'searchFilter',
 })
 export class SearchFilterPipe implements PipeTransform {
-
   transform(value: any, searchStr: any, ...args: any[]): any {
     if (!value || value.length == 0) {
       return null;
@@ -18,5 +17,4 @@ export class SearchFilterPipe implements PipeTransform {
       return JSON.stringify(item).toLowerCase().includes(searchStr);
     });
   }
-
 }
